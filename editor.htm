@@ -10,7 +10,7 @@
 		window.onload = function () {
 			ctx = document.getElementById("cvs").getContext("2d"); // 取得 canvas 相對應的 context 物件
 			// 載入圖片
-			loadImage("landscape.jpg");
+			// loadImage("landscape.jpg");
 		};
 
 		function loadImage(src) {
@@ -51,7 +51,7 @@
 	<div>
 		<!-- unlike python and stuff that it can't hard code the local hard drive path -->
 		<!-- but can let user choose the specified file -->
-		<input type="file" n onchange="loadFile(this);">
+		<input type="file" onchange="loadFile(this);">
 		<button onclick="invert();">Invert</button>
 	</div>
 	<canvas id="cvs" width="600" height="450" style="border:1px solid black"></canvas>
