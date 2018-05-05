@@ -65,6 +65,10 @@
 				// Blob object: In Javascript it will save as Binary data
 				// Get it here and keep continue working
 				var src = URL.createObjectURL(blob);
+				var link = document.querySelector("#download-link");
+				link.href = src;
+				link.download = "landscape.png";
+				link.click();
 			});
 		}
 	</script>
@@ -82,7 +86,8 @@
 		<!-- with download="google.htm", it should be download google src code-->
 		<!-- currently this website link won't work.  If you use "landscape.jpg", it will work -->
 		<!-- <a download="google.htm" href="http://www.google.com/">Google</a> -->
-		<a download="google.htm" href="landscape.jpg">Google</a>
+		<!-- <a download="google.htm" href="landscape.jpg">Google</a> -->
+		<a id="download-link"></a>
 	</div>
 	<canvas id="cvs" width="600" height="450" style="border:1px solid black"></canvas>
 </body>
