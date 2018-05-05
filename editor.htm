@@ -4,6 +4,11 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Photo Editor</title>
+	<style>
+		#file {
+			display: none;
+		}
+	</style>
 	<script>
 		// 影像編輯功能
 		var ctx;
@@ -44,6 +49,11 @@
 			console.log(src)
 			loadImage(src);
 		}
+
+		function createPicker() {
+			var input = document.querySelector("#file");
+			input.click();
+		}
 	</script>
 </head>
 
@@ -51,7 +61,8 @@
 	<div>
 		<!-- unlike python and stuff that it can't hard code the local hard drive path -->
 		<!-- but can let user choose the specified file -->
-		<input type="file" onchange="loadFile(this);">
+		<button onclick="createPicker();"> Open File</button>
+		<input id="file" type="file" onchange="loadFile(this);">
 		<button onclick="invert();">Invert</button>
 	</div>
 	<canvas id="cvs" width="600" height="450" style="border:1px solid black"></canvas>
