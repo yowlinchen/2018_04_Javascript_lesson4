@@ -54,6 +54,19 @@
 			var input = document.querySelector("#file");
 			input.click();
 		}
+
+		// exporting canvas output
+		function downloadFile() {
+			// First way
+			// ctx.canvas.toDataURL();
+			// Second way
+			ctx.canvas.toBlob(function (blob) {
+				// transfer canvas data to Blob object
+				// Blob object: In Javascript it will save as Binary data
+				// Get it here and keep continue working
+				var src = URL.createObjectURL(blob);
+			});
+		}
 	</script>
 </head>
 
@@ -64,6 +77,12 @@
 		<button onclick="createPicker();"> Open File</button>
 		<input id="file" type="file" onchange="loadFile(this);">
 		<button onclick="invert();">Invert</button>
+		<button onclick="downloadFile();">Download File</button>
+		<!-- when you click it, it will go to google website (natively it is downloading) -->
+		<!-- with download="google.htm", it should be download google src code-->
+		<!-- currently this website link won't work.  If you use "landscape.jpg", it will work -->
+		<!-- <a download="google.htm" href="http://www.google.com/">Google</a> -->
+		<a download="google.htm" href="landscape.jpg">Google</a>
 	</div>
 	<canvas id="cvs" width="600" height="450" style="border:1px solid black"></canvas>
 </body>
