@@ -36,7 +36,13 @@
 		}
 
 		function loadFile(input) {
-			console.log(input.files);
+			// console.log(input.files);
+			var file = input.files[0];
+			// convert the file to URL so that file object can be translated to website link
+			// so that this website link points to file content
+			var src = URL.createObjectURL(file);
+			console.log(src)
+			loadImage(src);
 		}
 	</script>
 </head>
